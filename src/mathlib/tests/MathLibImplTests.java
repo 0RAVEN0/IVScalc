@@ -46,8 +46,10 @@ public class MathLibImplTests {
         assertEquals(mathLib.divide(10,2), 5.0, 0);
         assertEquals(mathLib.divide(5,10), 0.5, 0);
         assertEquals(mathLib.divide(-5,-5), 1.0, 0);
-        assertEquals(mathLib.divide(5,0), ArithmeticException.class);
-
+    }
+    @Test(expected = ArithmeticException.class)
+    public void dividingIllegalNumbers(){
+        mathLib.divide(5, 0);
     }
 
 
