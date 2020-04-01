@@ -1,15 +1,16 @@
-JFLAGS= -g
+JFLAGS = -g -d
 JC = javac
 JVM = java
+JU = .\junit-platform-console-standalone-1.6.1.jar
+OUT = .\out\
 
-.SUFFIXES: .java .class
-
-.java.class:
-	$(JC) $(JFLAGS) $*.java
+.PHONY: all test clean
 	
-CLASSES: mathlib\interfaces\IMathLib.java \
-mathlib\tests\MathLibImplTests.java \
-mathlib\MathLibImpl.java
+all:
+	$(JC) $(JFLAGS) $(OUT) -cp $(JU) mathlib\interfaces\IMathLib.java mathlib\MathLibImpl.java mathlib\tests\MathLibImplTests.java
+	
+test: all
+	$(JVM) -jar $(JU) -f .\out\mathlib\tests\MathLibImplTests.class
 
 clean:
-	rmdir out\
+	rmdir /Q /S $(OUT)
