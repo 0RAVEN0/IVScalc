@@ -1,0 +1,17 @@
+Termíny:
+29.03.2020 - hotové testy a mockup GUI
+05.04.2020 - čiastočne hotová/hotová matematická knižnica, čiastočne hotové GUI, čiastočne hotový profiling
+12.04.2020 - hotová matematická knižnica, takmer hotové GUI, hotový profiling, rozpracovaný inštalátor
+19.04.2020 - hotový produkt
+
+Rozdelenie úloh:
+1) Testy - Vadym Hladyuk
+2) Matematická knižnica - Dalimil Rozprým
+3) Užívateľské rozhranie (GUI) - Romana Džubarová
+4) Profilovanie - Michal Vanka
+
+Komunikačný kanál:
+Discord
+
+Verzovací systém:
+GitHub - pozvánka na kolaboráciu odoslaná užívateľovi ivskontrola (priamy link - https://github.com/Leenoha/IVSproj - repo je ale privátne)
