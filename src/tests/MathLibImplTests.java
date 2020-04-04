@@ -1,4 +1,4 @@
-package mathlib.tests;
+package tests;
 
 import mathlib.MathLibImpl;
 import mathlib.interfaces.IMathLib;

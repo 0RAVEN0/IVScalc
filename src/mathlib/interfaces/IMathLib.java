@@ -1,8 +1,8 @@
 package mathlib.interfaces;
 
 /**
- * Basic math library with methods for adding, substracting, multiplying, dividing, factorial, natural exponentiation,
- * rooting and TODO 1 more function by our choice
+ * Basic math library providing methods for adding, substracting, multiplying, dividing, factorial, natural exponentiation,
+ * rooting and natural logarithm calculation.
  */
 public interface IMathLib {
 
@@ -60,4 +60,11 @@ public interface IMathLib {
      * @return nth root of x
      */
     double root(double x, double n);
+
+    /**
+     * Calculates natural logarithm of x.
+     * @param x input of logarithm
+     * @return ln(x)
+     */
+    double naturalLogarithm(double x);
 }

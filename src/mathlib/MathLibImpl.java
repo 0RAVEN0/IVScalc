@@ -37,4 +37,8 @@ public class MathLibImpl implements IMathLib {
     public double root(double x, double n) {
         return 0;
     }
+
+    public double naturalLogarithm(double x) {
+        return 0;
+    }
 }
