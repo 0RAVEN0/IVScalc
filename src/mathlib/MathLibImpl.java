@@ -41,9 +41,6 @@ public class MathLibImpl implements IMathLib {
     }
 
     public double naturalLogarithm(double x) {
-        if (x <= 0) {
-            return Double.NaN;
-        }
         return Math.log(x);
     }
 }

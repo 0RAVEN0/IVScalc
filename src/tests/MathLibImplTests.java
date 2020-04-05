@@ -94,7 +94,7 @@ public class MathLibImplTests {
         double resultDiv = mathLib.naturalLogarithm(-1337);
         assertTrue("Nan", Double.isNaN(resultDiv));
         resultDiv = mathLib.naturalLogarithm(0);
-        assertTrue("Nan", Double.isNaN(resultDiv));
+        assertTrue(resultDiv == Double.NEGATIVE_INFINITY);
     }
 
 
