@@ -4,6 +4,9 @@ import mathlib.MathLibImpl;
 import mathlib.interfaces.IMathLib;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.math.BigInteger;
+
 import static org.junit.Assert.*;
 
 
@@ -57,15 +60,15 @@ public class MathLibImplTests {
 
     @Test
     public void factorialing(){
-        assertEquals(mathLib.factorial(5), 120.0, 0.0001);
-        assertEquals(mathLib.factorial(13), 6227020800.0, 0.0001);
-        assertEquals(mathLib.factorial(0), 1.0, 0.0001);
+        assertEquals(mathLib.factorial(5), new BigInteger("120"));
+        assertEquals(mathLib.factorial(13), new BigInteger("6227020800"));
+        assertEquals(mathLib.factorial(0), new BigInteger("1"));
     }
 
     @Test
     public void exponentiating(){
         assertEquals(mathLib.exponentiate(2,2), 4.0, 0.0001);
-        assertEquals(mathLib.exponentiate(2,1), 4.0, 0.0001);
+        assertEquals(mathLib.exponentiate(2,1), 2.0, 0.0001);
         assertEquals(mathLib.exponentiate(2,-2), 0.25, 0.0001);
         assertEquals(mathLib.exponentiate(5,12), 244140625, 0.0001);
 
