@@ -7,10 +7,10 @@ OUT = .\out\
 .PHONY: all test clean
 	
 all:
-	$(JC) $(JFLAGS) $(OUT) -cp $(JU) mathlib\interfaces\IMathLib.java mathlib\MathLibImpl.java mathlib\tests\MathLibImplTests.java
+	$(JC) $(JFLAGS) $(OUT) -cp $(JU) mathlib\interfaces\IMathLib.java mathlib\MathLibImpl.java tests\MathLibImplTests.java
 	
 test: all
-	$(JVM) -jar $(JU) -f .\out\mathlib\tests\MathLibImplTests.class
+	$(JVM) -jar $(JU) -f .\out\tests\MathLibImplTests.class
 
 clean:
 	rmdir /Q /S $(OUT)
