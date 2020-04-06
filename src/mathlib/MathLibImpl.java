@@ -2,8 +2,10 @@ package mathlib;
 
 import mathlib.interfaces.IMathLib;
 
+import java.math.BigInteger;
+
 /**
- * Implementation of IMathLib interface TODO doc
+ * Implementation of IMathLib interface.
  */
 public class MathLibImpl implements IMathLib {
 
@@ -20,21 +22,25 @@ public class MathLibImpl implements IMathLib {
     }
 
     public double divide(double x, double y) throws ArithmeticException {
-        return  x / y;
+        return x / y;
     }
 
-    public int factorial(int n) {
-        if(n == 1) {
-            return 1;
-        }
-        return n * factorial(n - 1);
+    public BigInteger factorial(int n) {
+        BigInteger factorial = BigInteger.ONE;
+        for (int i = 2; i <= n; i++)
+            factorial = factorial.multiply(BigInteger.valueOf(i));
+        return factorial;
     }
 
-    public int exponentiate(double x, int n) {
-        return 0;
+    public double exponentiate(double x, int n) {
+        return Math.pow(x, n);
     }
 
     public double root(double x, double n) {
-        return 0;
+        return Math.pow(x, 1/n);
+    }
+
+    public double naturalLogarithm(double x) {
+        return Math.log(x);
     }
 }

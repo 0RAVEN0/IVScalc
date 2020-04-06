@@ -1,8 +1,10 @@
 package mathlib.interfaces;
 
+import java.math.BigInteger;
+
 /**
- * Basic math library with methods for adding, substracting, multiplying, dividing, factorial, natural exponentiation,
- * rooting and TODO 1 more function by our choice
+ * Basic math library providing methods for adding, substracting, multiplying, dividing, factorial, natural exponentiation,
+ * rooting and natural logarithm calculation.
  */
 public interface IMathLib {
 
@@ -43,7 +45,7 @@ public interface IMathLib {
      * @param n base of the factorial
      * @return product of all positeve integers lower than n
      */
-    int factorial(int n);
+    BigInteger factorial(int n);
 
     /**
      * Exponentiates x by n.
@@ -51,7 +53,7 @@ public interface IMathLib {
      * @param n exponent
      * @return x to the power of n
      */
-    int exponentiate(double x, int n);
+    double exponentiate(double x, int n);
 
     /**
      * Calculates nth root of x.
@@ -60,4 +62,11 @@ public interface IMathLib {
      * @return nth root of x
      */
     double root(double x, double n);
+
+    /**
+     * Calculates natural logarithm of x.
+     * @param x input of logarithm
+     * @return ln(x)
+     */
+    double naturalLogarithm(double x);
 }
