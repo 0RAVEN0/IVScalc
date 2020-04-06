@@ -6,7 +6,7 @@ public class Calculator {
     private JPanel Calculator;
     private JTextField TextField;
     private JButton btnEqual;
-    private JButton btnPercent;
+    private JButton btnNlog;
     private JButton btnAbsolut;
     private JButton btnPower;
     private JButton btnSeven;
