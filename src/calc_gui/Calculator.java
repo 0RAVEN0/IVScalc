@@ -239,7 +239,7 @@ public class Calculator {
                     case "x^y":
                         TextField.setText(Double.toString(Result.exponentiate(firstNum,(int)secondNum)));
                         break;
-                    case "√x":
+                    case "\u221Ax":
                         TextField.setText(Double.toString(Result.root(firstNum,secondNum)));
                         break;
                     default:
