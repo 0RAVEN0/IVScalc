@@ -166,7 +166,7 @@ public class Controller implements Initializable {
         firstNum = firstNum + Double.parseDouble(input.getText());
         Operation = btnRoot.getText();
         input.setText("");
-        prom.setText("√" + btnRootText);
+        prom.setText("\u221A" + btnRootText);
     }
 
     public void Power_click(){
