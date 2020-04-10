@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
     private double firstNum = 0.0;
     private double secondNum = 0.0;
+    private boolean equal_click = false;
 
     String Operation = "";
     MathLibImpl Result = new MathLibImpl();
@@ -52,77 +53,140 @@ public class Controller implements Initializable {
     }
 
     public void Zero_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnZeroText = input.getText() + btnZero.getText();
         input.setText(btnZeroText);
     }
 
     public void TZero_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnTZeroText = input.getText() + btnTZero.getText();
         input.setText(btnTZeroText);
     }
 
     public void One_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnOneText = input.getText() + btnOne.getText();
         input.setText(btnOneText);
     }
 
     public void Two_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnTwoText = input.getText() + btnTwo.getText();
         input.setText(btnTwoText);
     }
 
     public void Three_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnThreeText = input.getText() + btnThree.getText();
         input.setText(btnThreeText);
     }
 
     public void Four_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnFourText = input.getText() + btnFour.getText();
         input.setText(btnFourText);
     }
 
     public void Five_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnFiveText = input.getText() + btnFive.getText();
         input.setText(btnFiveText);
     }
 
     public void Six_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnSixText = input.getText() + btnSix.getText();
         input.setText(btnSixText);
     }
 
     public void Seven_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnSevenText = input.getText() + btnSeven.getText();
         input.setText(btnSevenText);
     }
 
     public void Eight_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnEightText = input.getText() + btnEight.getText();
         input.setText(btnEightText);
     }
 
     public void Nine_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnNineText = input.getText() + btnNine.getText();
         input.setText(btnNineText);
     }
 
     public void Point_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         if (input.getText().contains(".")){
-            input.setText(input.getText().replace(".",""));
-            btnPoint.setDisable(false);
+            input.setText(input.getText());
         }
         if (input.getText().equals("")){
             input.setText("0.");
         }
-        else {
+        if (!input.getText().equals("") && !input.getText().contains(".")) {
             String btnPointText = input.getText() + btnPoint.getText();
             input.setText(btnPointText);
         }
-        //btnPoint.setVisible(true);
     }
 
     public void Plus_click(){
-        String btnPlusText = input.getText();
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
+        String btnPlusText = "";
+
+        if (input.getText().equals("")){
+            return;
+        }
+
+        if (input.getText().substring(input.getText().length()-1).equals(".")){
+            btnPlusText = input.getText().substring(0,input.getText().length()-1);
+        }
+        else {
+            btnPlusText = input.getText();
+        }
+
+
         firstNum = firstNum + Double.parseDouble(input.getText());
         Operation = btnPlus.getText();
         input.setText("");
@@ -130,7 +194,22 @@ public class Controller implements Initializable {
     }
 
     public void Minus_click(){
-        String btnMinusText = input.getText();
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
+        String btnMinusText = "";
+
+        if (input.getText().equals("")){
+            return;
+        }
+
+        if (input.getText().substring(input.getText().length()-1).equals(".")){
+            btnMinusText = input.getText().substring(0,input.getText().length()-1);
+        }
+        else {
+            btnMinusText = input.getText();
+        }
         firstNum = firstNum + Double.parseDouble(input.getText());
         Operation = btnMinus.getText();
         input.setText("");
@@ -138,7 +217,22 @@ public class Controller implements Initializable {
     }
 
     public void Multiply_click(){
-        String btnMultiplyText = input.getText();
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
+        String btnMultiplyText = "";
+
+        if (input.getText().equals("")){
+            return;
+        }
+
+        if (input.getText().substring(input.getText().length()-1).equals(".")){
+            btnMultiplyText = input.getText().substring(0,input.getText().length()-1);
+        }
+        else {
+            btnMultiplyText = input.getText();
+        }
         firstNum = firstNum + Double.parseDouble(input.getText());
         Operation = "*";
         input.setText("");
@@ -146,7 +240,22 @@ public class Controller implements Initializable {
     }
 
     public void Divide_click(){
-        String btnDivideText = input.getText();
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
+        String btnDivideText = "";
+
+        if (input.getText().equals("")){
+            return;
+        }
+
+        if (input.getText().substring(input.getText().length()-1).equals(".")){
+            btnDivideText = input.getText().substring(0,input.getText().length()-1);
+        }
+        else {
+            btnDivideText = input.getText();
+        }
         firstNum = firstNum + Double.parseDouble(input.getText());
         Operation = btnDivide.getText();
         input.setText("");
@@ -154,7 +263,16 @@ public class Controller implements Initializable {
     }
 
     public void Nlog_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnNlogText = input.getText();
+
+        if (input.getText().equals("")){
+            return;
+        }
+
         firstNum = firstNum + Double.parseDouble(input.getText());
         Operation = btnNlog.getText();
         input.setText("");
@@ -162,7 +280,15 @@ public class Controller implements Initializable {
     }
 
     public void Root_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnRootText = input.getText();
+
+        if (input.getText().equals("")){
+            return;
+        }
         firstNum = firstNum + Double.parseDouble(input.getText());
         Operation = btnRoot.getText();
         input.setText("");
@@ -170,7 +296,16 @@ public class Controller implements Initializable {
     }
 
     public void Power_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnPowerText = input.getText();
+
+        if (input.getText().equals("")){
+            return;
+        }
+
         firstNum = firstNum + Double.parseDouble(input.getText());
         Operation = btnPower.getText();
         input.setText("");
@@ -178,7 +313,16 @@ public class Controller implements Initializable {
     }
 
     public void Factor_click(){
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+        }
         String btnFactorText = input.getText();
+
+        if (input.getText().equals("")){
+            return;
+        }
+
         firstNum = firstNum + Double.parseDouble(input.getText());
         Operation = btnFactor.getText();
         input.setText("");
@@ -199,28 +343,37 @@ public class Controller implements Initializable {
     }
 
     public void Equal_click(){
+        equal_click = true;
         String Prom_value = "";
         switch (Operation){
             case "+":
-                secondNum = secondNum + Double.parseDouble(input.getText());
+                if (!input.getText().equals("")){
+                    secondNum = secondNum + Double.parseDouble(input.getText());
+                }
                 input.setText(Double.toString(Result.add(firstNum,secondNum)));
                 Prom_value = prom.getText();
                 prom.setText(Prom_value + secondNum);
                 break;
             case "-":
-                secondNum = secondNum + Double.parseDouble(input.getText());
+                if (!input.getText().equals("")){
+                    secondNum = secondNum + Double.parseDouble(input.getText());
+                }
                 input.setText(Double.toString(Result.subtract(firstNum,secondNum)));
                 Prom_value = prom.getText();
                 prom.setText(Prom_value + secondNum);
                 break;
             case "*":
-                secondNum = secondNum + Double.parseDouble(input.getText());
+                if (!input.getText().equals("")){
+                    secondNum = secondNum + Double.parseDouble(input.getText());
+                }
                 input.setText(Double.toString(Result.multiply(firstNum,secondNum)));
                 Prom_value = prom.getText();
                 prom.setText(Prom_value + secondNum);
                 break;
             case "/":
-                secondNum = secondNum + Double.parseDouble(input.getText());
+                if (!input.getText().equals("")){
+                    secondNum = secondNum + Double.parseDouble(input.getText());
+                }
                 input.setText(Double.toString(Result.divide(firstNum,secondNum)));
                 Prom_value = prom.getText();
                 prom.setText(Prom_value + secondNum);
@@ -233,13 +386,17 @@ public class Controller implements Initializable {
                 input.setText(integer_value.toString());
                 break;
             case "x^y":
-                secondNum = secondNum + Double.parseDouble(input.getText());
+                if (!input.getText().equals("")){
+                    secondNum = secondNum + Double.parseDouble(input.getText());
+                }
                 input.setText(Double.toString(Result.exponentiate(firstNum,(int)secondNum)));
                 Prom_value = prom.getText();
                 prom.setText(Prom_value + secondNum);
                 break;
             case "\u221Ax":
-                secondNum = secondNum + Double.parseDouble(input.getText());
+                if (!input.getText().equals("")){
+                    secondNum = secondNum + Double.parseDouble(input.getText());
+                }
                 input.setText(Double.toString(Result.root(firstNum,secondNum)));
                 Prom_value = prom.getText();
                 prom.setText(secondNum + Prom_value);
