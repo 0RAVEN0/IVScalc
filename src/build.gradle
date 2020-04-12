@@ -28,6 +28,12 @@ test {
 	}
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'calc_gui.Calculator'
+    }
+}
+
 sourceSets {
 	main {
 		java {
