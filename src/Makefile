@@ -1,10 +1,10 @@
-.PHONY: all qbuild test run profile doc clean pack
+.PHONY: all loud test run profile doc clean pack
 	
 all:
-	gradle build
-	
-qbuild:
 	gradle -q build
+	
+loud:
+	gradle build
 	
 test:
 	gradle test
@@ -12,10 +12,10 @@ test:
 run:
 	gradle run
 	
-profile: qbuild
+profile: all
 	java -cp .\build\classes\java\main profiling.profile
 	
-doc: qbuild
+doc: all
 	doxygen doxy_config
 
 clean:
