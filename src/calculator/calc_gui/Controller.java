@@ -3,15 +3,18 @@ package calc_gui;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import mathlib.MathLibImpl;
 
-import javax.print.DocFlavor;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.math.BigInteger;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -49,12 +52,22 @@ public class Controller implements Initializable {
     public JFXButton btnRoot;
     public JFXButton btnNlog;
     public JFXButton btnTZero;
+    public JFXButton btnChwindow;
     public JFXTextField input;
     public Label prom;
+
+    @FXML
+    private AnchorPane root_pane;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1){
         input.setEditable(false);
+    }
+
+    @FXML
+    public void Button_click(javafx.event.ActionEvent actionEvent) throws Exception{
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("helper.fxml"));
+        root_pane.getChildren().setAll(pane);
     }
 
     public void Zero_click(){
@@ -180,7 +193,18 @@ public class Controller implements Initializable {
         }
         String btnPlusText;
 
+        System.out.println("tu si ");
         if (input.getText().equals("")){
+            if (numbers.size() != operations.size()) {
+                operations.add(btnPlus.getText());
+                input.setText("");
+                prom.setText(prom.getText() + "+");
+            }
+            if (operations.get(operations.size()-1).equals("x!")){
+                operations.add(btnPlus.getText());
+                input.setText("");
+                prom.setText(prom.getText() + "+");
+            }
             return;
         }
 
@@ -205,6 +229,11 @@ public class Controller implements Initializable {
         String btnMinusText;
 
         if (input.getText().equals("")){
+            if (numbers.size() != operations.size()) {
+                operations.add(btnMinus.getText());
+                input.setText("");
+                prom.setText(prom.getText() + "-");
+            }
             return;
         }
 
@@ -229,6 +258,11 @@ public class Controller implements Initializable {
         String btnMultiplyText;
 
         if (input.getText().equals("")){
+            if (numbers.size() != operations.size()) {
+                operations.add("*");
+                input.setText("");
+                prom.setText(prom.getText() + "*");
+            }
             return;
         }
 
@@ -252,6 +286,11 @@ public class Controller implements Initializable {
         String btnDivideText;
 
         if (input.getText().equals("")){
+            if (numbers.size() != operations.size()) {
+                operations.add(btnDivide.getText());
+                input.setText("");
+                prom.setText(prom.getText() + "/");
+            }
             return;
         }
 
@@ -294,7 +333,7 @@ public class Controller implements Initializable {
             return;
         }
         numbers.add(Double.parseDouble(input.getText()));
-        operations.add(btnRoot.getText());
+        operations.add("\u221Ax");
         input.setText("");
         prom.setText(prom.getText() + "\u221A" + btnRootText);
     }
@@ -307,6 +346,11 @@ public class Controller implements Initializable {
         String btnPowerText = input.getText();
 
         if (input.getText().equals("")){
+            if (numbers.size() != operations.size()) {
+                operations.add(btnPower.getText());
+                input.setText("");
+                prom.setText(prom.getText() + "^");
+            }
             return;
         }
         numbers.add(Double.parseDouble(input.getText()));
@@ -332,8 +376,10 @@ public class Controller implements Initializable {
     }
 
     public void Delete_click(){
-        numbers.clear();
-        operations.clear();
+        if (input.getText().isEmpty()){
+            operations.remove(operations.size()-1);
+            prom.setText(prom.getText().substring(0,prom.getText().length()-1));
+        }
         firstNum = 0.0;
         secondNum = 0.0;
         input.setText("");
@@ -349,8 +395,17 @@ public class Controller implements Initializable {
     }
 
     public void Equal_click(){
-        equal_click = true;
+        if (equal_click){
+            DeleteAll_click();
+            equal_click = false;
+            return;
+        }
 
+        if (numbers.isEmpty() || operations.isEmpty()){
+            return;
+        }
+
+        equal_click = true;
         String Prom_value;
         Prom_value = prom.getText();
         prom.setText(Prom_value + input.getText());
@@ -410,15 +465,16 @@ public class Controller implements Initializable {
                 case "x!":
                     BigInteger integer_value;
                     if (operations.size() > 1) {
-                        secondNum = numbers.get(i + 1);
+                        secondNum = numbers.get(i);
                         integer_value = Result.factorial((int) secondNum);
+                        firstNum = firstNum + integer_value.doubleValue();
                     }
                     else {
                         integer_value = Result.factorial((int) firstNum);
+                        firstNum = integer_value.doubleValue();
                     }
-                    firstNum = integer_value.doubleValue();
                     break;
-                case "x^y":
+                case "x^n":
                     if (!input.getText().equals("")) {
                         secondNum = numbers.get(i + 1);
                     }
@@ -437,4 +493,6 @@ public class Controller implements Initializable {
 
         input.setText(Double.toString(firstNum));
     }
+
+
 }
