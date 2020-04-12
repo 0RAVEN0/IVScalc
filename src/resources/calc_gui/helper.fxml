@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane fx:id="children_pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc_gui.Helper">
+   <children>
+      <Text layoutX="52.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="x! - faktoriál čísla x" wrappingWidth="471.205078125">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="btnRwindow" onAction="#Button_unclick" prefHeight="29.0" prefWidth="47.0" style="-fx-background-color: #edbdbd;" text="?" />
+      <Text layoutX="52.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="x^n - n-tá mocnina čísla x" wrappingWidth="471.205078125">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="52.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ⁿ√x - n-tá odmocnina čísla x" wrappingWidth="471.205078125">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="52.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ln - prirodzený logaritmus" wrappingWidth="471.205078125">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="52.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/ - delenie" wrappingWidth="471.205078125">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="52.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X - násobenie" wrappingWidth="471.205078125">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="52.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- - odčítanie" wrappingWidth="471.205078125">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="52.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ - sčítanie" wrappingWidth="471.205078125">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="52.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CE - mazanie aktuálnej hodnoty/operácie" wrappingWidth="471.205078125">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="52.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C - mazanie celej histórie operácii" wrappingWidth="471.205078125">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
