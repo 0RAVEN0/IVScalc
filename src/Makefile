@@ -1,25 +1,25 @@
 .PHONY: all loud test run profile doc clean pack
 	
 all:
-	gradle -q build
+	gradlew -q build
 	
 loud:
-	gradle build
+	gradlew build
 	
 test:
-	gradle test
+	gradlew test
 	
 run:
-	gradle run
+	gradlew run
 	
-profile: all
-	java -cp .\build\classes\java\main profiling.profile
+profile:
+	gradlew profile
 	
 doc: all
 	doxygen doxy_config
 
 clean:
-	gradle clean
+	gradlew clean
 	rmdir /Q /S .gradle\
 	
 pack: clean
