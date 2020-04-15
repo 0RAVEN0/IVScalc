@@ -51,4 +51,10 @@ sourceSets {
     }
 }
 
+task(profile, dependsOn: 'classes', type: JavaExec) {
+	main = 'profiling.profile'
+	classpath = sourceSets.main.runtimeClasspath
+	standardInput = System.in
+}
+
 mainClassName = 'main'
