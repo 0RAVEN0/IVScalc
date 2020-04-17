@@ -5,25 +5,25 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import mathlib.MathLibImpl;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.math.BigInteger;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Controller class called Controller for calculator.fxml
+ */
 public class Controller implements Initializable {
     private double firstNum = 0.0;
     private double secondNum = 0.0;
 
-    private final List<Double> numbers = new ArrayList<Double>();
-    private final List<String> operations = new ArrayList<String>();
+    private final List<Double> numbers = new ArrayList<>();
+    private final List<String> operations = new ArrayList<>();
     private boolean equal_click = false;
 
     MathLibImpl Result = new MathLibImpl();
@@ -60,11 +60,17 @@ public class Controller implements Initializable {
     private AnchorPane root_pane;
 
     @Override
+    /**
+     * Function that set TextField not editable(you can not write into it)
+     */
     public void initialize(URL arg0, ResourceBundle arg1){
         input.setEditable(false);
     }
 
     @FXML
+    /**
+     * Function for redirection to another window
+     */
     public void Button_click(javafx.event.ActionEvent actionEvent) throws Exception{
         AnchorPane pane = FXMLLoader.load(getClass().getResource("helper.fxml"));
         root_pane.getChildren().setAll(pane);
@@ -193,7 +199,6 @@ public class Controller implements Initializable {
         }
         String btnPlusText;
 
-        System.out.println("tu si ");
         if (input.getText().equals("")){
             if (numbers.size() != operations.size()) {
                 operations.add(btnPlus.getText());

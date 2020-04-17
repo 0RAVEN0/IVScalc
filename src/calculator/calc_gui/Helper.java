@@ -9,6 +9,9 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller class called Helper for helper.fxml
+ */
 public class Helper implements Initializable {
 
     @FXML

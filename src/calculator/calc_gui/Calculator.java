@@ -8,6 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+/**
+ * Class Calculator necessary for calculator to be loaded.
+ */
 public class Calculator extends Application {
 
     @Override
