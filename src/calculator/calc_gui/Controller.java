@@ -340,7 +340,7 @@ public class Controller implements Initializable {
         numbers.add(Double.parseDouble(input.getText()));
         operations.add("\u221Ax");
         input.setText("");
-        prom.setText(prom.getText() + "\u221A" + btnRootText);
+        prom.setText(prom.getText() + "sqrt(" + btnRootText + ")");
     }
 
     public void Power_click(){
