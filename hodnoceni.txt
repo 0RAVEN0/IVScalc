@@ -1,0 +1,4 @@
+xvanka00 100 (makefile, profiling, doxyfile)
+xdzuba00 100 (GUI)
+xhlady01 100 (testy)
+xrozpr00 100 (matematická knihovna, rozhrania)

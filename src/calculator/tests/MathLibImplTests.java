@@ -1,24 +1,17 @@
 package tests;
 
 import mathlib.MathLibImpl;
-import mathlib.interfaces.IMathLib;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class MathLibImplTests {
 
-    private IMathLib mathLib;
-
-
-    @Before
-    public void prepare() {
-        mathLib = new MathLibImpl();
-    }
+    private final MathLibImpl mathLib = new MathLibImpl();
 
     @Test
     public void adding(){
@@ -53,9 +46,9 @@ public class MathLibImplTests {
     @Test
     public void dividingIllegalNumbers(){
         double resultDiv = mathLib.divide(5, 0);
-        assertTrue("Divide by zero gives infinity as result", Double.isInfinite(resultDiv));
+        assertTrue(Double.isInfinite(resultDiv), "Divide by zero gives infinity as result");
         resultDiv = mathLib.divide(5.99, 0);
-        assertTrue("Divide by zero gives infinity as result", Double.isInfinite(resultDiv));
+        assertTrue(Double.isInfinite(resultDiv), "Divide by zero gives infinity as result");
     }
 
     @Test
@@ -92,9 +85,9 @@ public class MathLibImplTests {
     @Test
     public void naturalLogarithmingIllegalNumber(){
         double resultDiv = mathLib.naturalLogarithm(-1337);
-        assertTrue("Nan", Double.isNaN(resultDiv));
+        assertTrue(Double.isNaN(resultDiv), "Nan");
         resultDiv = mathLib.naturalLogarithm(0);
-        assertTrue(resultDiv == Double.NEGATIVE_INFINITY);
+        assertEquals(resultDiv, Double.NEGATIVE_INFINITY);
     }
 
 

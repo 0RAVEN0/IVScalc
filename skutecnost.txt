@@ -1,0 +1,2 @@
+Náš program sa od plánu v zásade neodlišuje. Jediné, čo sa počas vývoja zmenilo, bola zmena prekladania 
+čisto cez Makefile na preklad pomocou nástroja Gradle.

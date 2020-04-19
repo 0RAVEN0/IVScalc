@@ -1,20 +1,26 @@
-JFLAGS = -g -d
-JC = javac
-JVM = java
-JU = .\junit-platform-console-standalone-1.6.1.jar
-OUT = .\out\
-
-.PHONY: all test profile clean
+.PHONY: all loud test run profile doc clean pack
 	
 all:
-	if not exist $(OUT) mkdir $(OUT)
-	$(JC) $(JFLAGS) $(OUT) -cp $(JU) mathlib\interfaces\IMathLib.java mathlib\MathLibImpl.java tests\MathLibImplTests.java profiling\profile.java
+	gradlew -q build
 	
-test: all
-	$(JVM) -jar $(JU) -cp $(OUT) -c tests.MathLibImplTests
+loud:
+	gradlew build
 	
-profile: all
-	$(JVM) -cp $(OUT) profiling.profile < profiling\nums.txt
+test:
+	gradlew test
+	
+run:
+	gradlew run
+	
+profile:
+	gradlew profile
+	
+doc: all
+	doxygen doxy_config
 
 clean:
-	if exist $(OUT) rmdir /Q /S $(OUT)
+	gradlew clean
+	rmdir /Q /S .gradle\
+	
+pack: clean
+	
