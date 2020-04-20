@@ -1,3 +1,4 @@
+packdir = xvanka00_xdzuba00_xhlady01_xrozpr00
 .PHONY: all loud test run profile doc clean pack
 	
 all:
@@ -22,5 +23,13 @@ clean:
 	gradlew clean
 	rmdir /Q /S .gradle\
 	
-pack: clean
-	
+pack: doc clean
+	powershell md $(packdir) && \
+	cd $(packdir) && \
+	powershell md install && \
+	powershell md repo && \
+	cd .. && \
+	powershell move ..\doc $(packdir) && \
+	powershell xcopy ..\..\IVSproj $(packdir)\repo /i && \
+	powershell Compress-Archive $(packdir) -Force -DestinationPath ..\..\$(packdir).zip
+	rmdir /Q /S $(packdir)
