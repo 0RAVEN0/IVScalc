@@ -239,6 +239,11 @@ public class Controller implements Initializable {
                 input.setText("");
                 prom.setText(prom.getText() + "-");
             }
+
+            if(numbers.isEmpty() && operations.isEmpty()){
+                input.setText("-");
+            }
+
             return;
         }
 
@@ -382,6 +387,9 @@ public class Controller implements Initializable {
 
     public void Delete_click(){
         if (input.getText().isEmpty()){
+            if (operations.size() == 0){
+                return;
+            }
             operations.remove(operations.size()-1);
             prom.setText(prom.getText().substring(0,prom.getText().length()-1));
         }
