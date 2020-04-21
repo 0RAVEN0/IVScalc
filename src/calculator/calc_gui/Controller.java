@@ -65,6 +65,30 @@ public class Controller implements Initializable {
      */
     public void initialize(URL arg0, ResourceBundle arg1){
         input.setEditable(false);
+        btnOne.setFocusTraversable(false);
+        btnTwo.setFocusTraversable(false);
+        btnThree.setFocusTraversable(false);
+        btnFour.setFocusTraversable(false);
+        btnFive.setFocusTraversable(false);
+        btnSix.setFocusTraversable(false);
+        btnSeven.setFocusTraversable(false);
+        btnEight.setFocusTraversable(false);
+        btnNine.setFocusTraversable(false);
+        btnZero.setFocusTraversable(false);
+        btnDelete.setFocusTraversable(false);
+        btnDeleteAll.setFocusTraversable(false);
+        btnPoint.setFocusTraversable(false);
+        btnPower.setFocusTraversable(false);
+        btnPlus.setFocusTraversable(false);
+        btnMinus.setFocusTraversable(false);
+        btnEqual.setFocusTraversable(false);
+        btnFactor.setFocusTraversable(false);
+        btnMultiply.setFocusTraversable(false);
+        btnDivide.setFocusTraversable(false);
+        btnRoot.setFocusTraversable(false);
+        btnNlog.setFocusTraversable(false);
+        btnTZero.setFocusTraversable(false);
+        btnChwindow.setFocusTraversable(false);
     }
 
     @FXML
