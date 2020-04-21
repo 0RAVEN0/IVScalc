@@ -487,7 +487,7 @@ public class Controller implements Initializable {
                         firstNum = integer_value.doubleValue();
                     }
                     break;
-                case "xⁿ":
+                case "x\u207F":
                     if (!input.getText().equals("")) {
                         secondNum = numbers.get(i + 1);
                     }
